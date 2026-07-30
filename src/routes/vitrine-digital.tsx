@@ -626,12 +626,6 @@ function FooterCTA() {
             >
               Falar no WhatsApp agora <ArrowRight size={16} />
             </a>
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 rounded-md border-2 border-primary bg-primary/5 px-8 py-4 font-mono text-sm font-bold uppercase tracking-wider text-foreground transition-all hover:bg-primary hover:text-primary-foreground"
-            >
-              ← Ver outros serviços
-            </Link>
           </div>
           <p className="relative mt-5 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
             Sem débito directo · Fatura com IVA · 12 meses de garantia

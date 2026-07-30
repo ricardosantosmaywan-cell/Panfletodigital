@@ -75,7 +75,6 @@ function AgendaCheia() {
       <ForWho />
       <Distinctive />
       <Testimonial />
-      <Plans />
       <FAQ />
       <FooterCTA />
       <FloatingWA />
@@ -99,21 +98,10 @@ function Nav() {
           <Link to="/" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
             ← Voltar ao início
           </Link>
-          <a href="#planos" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-            Planos
-          </a>
           <a href="#faq" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
             FAQ
           </a>
         </nav>
-        <a
-          href={waLink("Olá Maltadigital! Quero testar 7 dias do serviço de Panfletagem Digital.")}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-2.5 font-mono text-xs font-bold uppercase tracking-wider text-accent-foreground transition-all hover:scale-105 hover:shadow-glow-accent"
-        >
-          WhatsApp
-        </a>
       </div>
     </header>
   );
@@ -145,15 +133,13 @@ function Hero() {
               Segmentado por zona, idade e interesse. Sem contratos. Sem amarras. Resultados visíveis.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
-              <a
-                href={waLink("Olá Maltadigital! Quero testar 7 dias da Panfletagem Digital.")}
-                target="_blank"
-                rel="noreferrer"
-                className="group inline-flex items-center gap-2 rounded-md bg-accent px-7 py-4 font-mono text-sm font-bold uppercase tracking-wider text-accent-foreground shadow-glow-accent transition-transform hover:scale-105"
+              <button
+                disabled
+                className="group inline-flex items-center gap-2 rounded-md bg-accent px-7 py-4 font-mono text-sm font-bold uppercase tracking-wider text-accent-foreground shadow-glow-accent transition-transform opacity-60 cursor-not-allowed"
               >
                 Quero testar 7 dias
                 <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-              </a>
+              </button>
               <a
                 href="#como-funciona"
                 className="inline-flex items-center gap-2 rounded-md border-2 border-primary bg-primary/5 px-7 py-4 font-mono text-sm font-bold uppercase tracking-wider text-foreground transition-all hover:bg-primary hover:text-primary-foreground hover:glow-primary"
@@ -248,18 +234,18 @@ function Problem() {
 /* ------------------------------ Comparison ----------------------------- */
 
 function Comparison() {
-  const rows: Array<[string, string, string, string]> = [
-    ["Custo/mês", "300–500 €", "200–800 €", "85–310 €"],
-    ["Público alvo", "Quem encontra", "Só seguidoras", "Segmentado (zona/idade)"],
-    ["Sabes quem viu?", "Não", "Sim, mas genérico", "Sim, exacto"],
-    ["Sabes quem clicou?", "Impossível", "Sim, mas é pago", "Sim, incluído"],
-    ["Feedback real?", "Achismo", "Genérico", "Exacto (cliques, msg)"],
-    ["Mudar promoção?", "Imprimir de novo", "Criar nova rede", "Um clique"],
-    ["Adaptável por hora?", "Não", "Complicado", "Sim, fácil"],
-    ["Desperdício", "70% (lixo)", "Nenhum", "Nenhum"],
-    ["Segmentação", "Nenhuma", "Idade / interesse", "Zona + idade + interesse"],
-    ["Contratos?", "Depende", "Sim (mensal)", "Nenhum"],
-    ["Sabes o ROI exacto?", "Não", "Parcial", "Sim, total"],
+  const rows: Array<[string, string, string]> = [
+    ["Custo/mês", "300–500 €", "85–310 €"],
+    ["Público alvo", "Quem encontra", "Segmentado (zona/idade)"],
+    ["Sabes quem viu?", "Não", "Sim, exacto"],
+    ["Sabes quem clicou?", "Impossível", "Sim, incluído"],
+    ["Feedback real?", "Achismo", "Exacto (cliques, msg)"],
+    ["Mudar promoção?", "Imprimir de novo", "Um clique"],
+    ["Adaptável por hora?", "Não", "Sim, fácil"],
+    ["Desperdício", "70% (lixo)", "Nenhum"],
+    ["Segmentação", "Nenhuma", "Zona + idade + interesse"],
+    ["Contratos?", "Depende", "Nenhum"],
+    ["Sabes o ROI exacto?", "Não", "Sim, total"],
   ];
   return (
     <section className="relative py-24">
@@ -267,7 +253,7 @@ function Comparison() {
         <SectionTitle
           eyebrow="✦ Por que a panfletagem digital é melhor"
           title={<>Deixa de gastar em <span className="text-gradient">formas antigas.</span></>}
-          sub="Papel vs redes sociais vs panfletagem digital. Sem rodeios."
+          sub="Papel vs panfletagem digital. Sem rodeios."
         />
         <div className="overflow-x-auto rounded-2xl border border-primary/30 bg-surface/60 backdrop-blur-sm">
           <table className="w-full min-w-[680px] text-left text-sm">
@@ -275,19 +261,17 @@ function Comparison() {
               <tr className="border-b border-primary/25 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                 <th className="p-4"> </th>
                 <th className="p-4">Papel</th>
-                <th className="p-4">Redes sociais</th>
                 <th className="p-4 bg-primary/10 text-primary-glow">Panfletagem digital</th>
               </tr>
             </thead>
             <tbody>
-              {rows.map(([label, a, b, c], i) => (
+              {rows.map(([label, a, c], i) => (
                 <tr
                   key={label}
                   className={i % 2 ? "bg-background/30" : ""}
                 >
                   <td className="p-4 font-display text-sm font-bold">{label}</td>
                   <td className="p-4 text-muted-foreground">{a}</td>
-                  <td className="p-4 text-muted-foreground">{b}</td>
                   <td className="p-4 bg-primary/5 font-medium text-foreground">{c}</td>
                 </tr>
               ))}
@@ -423,7 +407,7 @@ function Distinctive() {
     { icon: MapPin, t: "Segmentação que funciona", d: "Chegamos a mulheres num raio de 5–15 km com interesse em beleza e na faixa etária certa. Não é toda a gente — é quem pode ir." },
     { icon: MessageCircle, t: "Clientes direto no WhatsApp", d: "Cada interessada clica no anúncio e fala contigo. Sem intermediários. Já vêm com interesse — maior probabilidade de marcar." },
     { icon: Unlock, t: "Sem contratos nem amarras", d: "Escolhes a duração. Quando acaba, decides. Sem pressão. Sem letras miúdas." },
-    { icon: FileBarChart, t: "Relatório claro", d: "Vês exactamente quantas pessoas viram, quantas clicaram, quantas mandaram mensagem, a que hora e de que bairros." },
+    { icon: FileBarChart, t: "Relatório claro", d: "Vês exactamente quantas pessoas viram, quantas clicaram, quantas mandaram mensagem, a que hora e de que zonas." },
     { icon: Megaphone, t: "Gestão feita por nós", d: "Tratamos das contas, segmentação e ajustes. Tu só respondes a quem chega interessado." },
     { icon: Zap, t: "Flexibilidade em tempo real", d: "Mudou a promoção? Um clique. Queres testar outro horário? Ajustamos em 5 minutos. Papel = imprimir de novo. Nós = um clique." },
   ];
@@ -815,32 +799,22 @@ function FooterCTA() {
           </p>
           <div className="relative mt-8 flex flex-wrap items-center justify-center gap-3">
             {buttons.map((b) => (
-              <a
+              <button
                 key={b.label}
-                href={waLink(b.msg)}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-md border-2 border-primary bg-primary/10 px-6 py-3 font-mono text-xs font-bold uppercase tracking-wider text-foreground transition-all hover:bg-primary hover:text-primary-foreground hover:glow-primary"
+                disabled
+                className="inline-flex items-center gap-2 rounded-md border-2 border-primary bg-primary/10 px-6 py-3 font-mono text-xs font-bold uppercase tracking-wider text-foreground transition-all opacity-60 cursor-not-allowed"
               >
                 {b.label}
-              </a>
+              </button>
             ))}
           </div>
           <div className="relative mt-6 flex flex-wrap items-center justify-center gap-4">
-            <a
-              href={waLink("Olá Maltadigital! Quero saber mais sobre a Panfletagem Digital.")}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-md bg-accent px-8 py-4 font-mono text-sm font-bold uppercase tracking-wider text-accent-foreground shadow-glow-accent transition-transform hover:scale-105"
+            <button
+              disabled
+              className="inline-flex items-center gap-2 rounded-md bg-accent px-8 py-4 font-mono text-sm font-bold uppercase tracking-wider text-accent-foreground shadow-glow-accent transition-transform opacity-60 cursor-not-allowed"
             >
               Falar no WhatsApp <ArrowRight size={16} />
-            </a>
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 rounded-md border-2 border-primary bg-primary/5 px-8 py-4 font-mono text-sm font-bold uppercase tracking-wider text-foreground transition-all hover:bg-primary hover:text-primary-foreground"
-            >
-              ← Ver outros serviços
-            </Link>
+            </button>
           </div>
           <p className="relative mt-5 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
             Sem contratos · Sem permanência · Criativo grátis
